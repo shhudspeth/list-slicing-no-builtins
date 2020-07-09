@@ -15,8 +15,11 @@ def custom_len(input_list):
         8
 
     """
+    length_of_list = 0
+    for x in input_list:
+        length_of_list += 1
 
-    return 0
+    return length_of_list
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -43,6 +46,7 @@ def custom_append(input_list, value):
         True
 
     """
+    input_list += [value]
 
     pass
 
