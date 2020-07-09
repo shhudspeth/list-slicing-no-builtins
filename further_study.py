@@ -84,7 +84,7 @@ def custom_insert(input_list, index, value):
         True
 
     """
-    input_list[index:index] = value
+    input_list[index:index] = [value]
 
     pass
 
@@ -127,7 +127,7 @@ def custom_pop(input_list):
 
     """
     pop_value = input_list[-1]
-    input_list = input_list[:-1]
+    del input_list[-1]
     return pop_value
 
 
@@ -185,7 +185,19 @@ def custom_reverse(input_list):
         True
 
     """
+    
+    length_of_list = 0
+    reverse_list = input_list[:]
+    for x in input_list:
+        length_of_list += 1
 
+    count = 0
+    for x in input_list:
+        no_x = count + 1
+        # print(x, no_x)
+        input_list[count] = reverse_list[-1*no_x]
+        # print(reverse_list)
+        count += 1
     pass
 
 
@@ -205,8 +217,11 @@ def custom_contains(input_list, value):
         True
 
     """
+    for x in input_list:
+        if x == value:
+            return True
 
-    return None
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -224,8 +239,13 @@ def custom_equality(some_list, another_list):
         False
 
     """
+    count = 0
+    for x in some_list:
+        if some_list[count] != another_list[count]:
+            return False
+        count += 1
 
-    return None
+    return True
 
 
 # This is the part were we actually run the doctests.
